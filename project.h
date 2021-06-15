@@ -18,3 +18,4 @@ struct progbits {
 };
 
 struct progbits loadbits(char *filename);
+struct progbits loadbits_raw(char *filename);

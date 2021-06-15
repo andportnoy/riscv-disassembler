@@ -16,6 +16,17 @@ $ ./das fib.o
   2c:  fff70713            addi     x14 x14  -1
   30:  fe0714e3            bne      x14  x0 -24
 ```
+## elf and raw binary format
+- use -r option to dissassemble raw RV32I binaries
+```
+$ ./das -r led.bin
+   0:  20008137          lui       x2 0x20008    
+   4:  00010113          addi      x2  x2   0
+   8:  400212b7          lui       x5 0x40021    
+   c:  00028293          addi      x5  x5   0
+  10:  01828293          addi      x5  x5  24
+...
+```
 
 ## What's missing
 - ABI register names

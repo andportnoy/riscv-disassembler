@@ -200,8 +200,24 @@ char *op2(u32 insn) {
 }
 
 int main(int argc, char **argv) {
-	struct progbits pb = loadbits(argv[1]);
+   struct progbits pb; 
+   if ((argc > 1) & (!strcmp(argv[1],"-r"))) 
+   {
+    printf("disassembling raw binary %s\n", argv[2]);
+    pb = loadbits_raw(argv[2]);
+    
+   }
+   else 
+   {
+    pb = loadbits(argv[1]);
+   }
+   
+	
 	for (u32 i=0, n=pb.size, insn=pb.data[i]; i<n; ++i, insn=pb.data[i])
 		printf("%4x:  %08x          %-8s %3s %3s %3s\n",
 		  4*i, insn, name(insn), op0(insn), op1(insn), op2(insn));
 }
+
+
+
+

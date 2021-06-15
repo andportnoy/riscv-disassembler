@@ -6,7 +6,7 @@ OBJS=$(SRCS:.c=.o)
 PROG=das
 
 all: $(PROG)
-das: elf.o
+das: elf.o raw.o
 
 clean:
 	rm -rf $(PROG) $(OBJS)
